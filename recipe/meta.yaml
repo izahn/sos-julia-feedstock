@@ -1,13 +1,13 @@
 {% set name = "sos-julia" %}
-{% set version = "0.18.2" %}
+{% set version = "0.18.5" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 53551d793ef9ac37dc2df39a4978321d3231e119c3a740edd0c924b38f6c9dbc
+  sha256: e2c67e0d18f54eaeebaaf11537b03d753206711debaf04c7c1673ecd3ae962bc
 
 build:
   noarch: python
@@ -42,7 +42,7 @@ about:
   license: BSD
   license_family: BSD
   license_file: LICENSE
-  summary: "SoS language module for Julia"
+  summary: SoS language module for Julia
   doc_url: https://vatlab.github.io/sos-docs/
   dev_url: https://github.com/vatlab/sos-julia
 
