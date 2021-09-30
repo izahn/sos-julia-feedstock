@@ -1,17 +1,17 @@
 {% set name = "sos-julia" %}
-{% set version = "0.18.2" %}
+{% set version = "0.18.5" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 53551d793ef9ac37dc2df39a4978321d3231e119c3a740edd0c924b38f6c9dbc
+  sha256: e2c67e0d18f54eaeebaaf11537b03d753206711debaf04c7c1673ecd3ae962bc
 
 build:
-  noarch: python
   number: 0
+  skip: true  # [py<37]
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
     - export JUPYTER_DATA_DIR=${PREFIX}/share/jupyter
@@ -21,28 +21,32 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - julia
+    - jupyter_contrib_core
   run:
-    - sos-notebook >=0.19.4
+    - sos-notebook >=0.22.7
     - feather-format
     - julia
-    - python >=3.6
+    - python
 
 test:
   requires:
     - nose
     - pytest
     - selenium
+    - jupyter_contrib_core
+    - jupyter_contrib_nbextensions
+    - sos-notebook >=0.22.7
   imports:
     - sos_julia
 
 about:
   home: https://github.com/vatlab/sos-julia
-  license: BSD
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: "SoS language module for Julia"
+  summary: SoS language module for Julia
   doc_url: https://vatlab.github.io/sos-docs/
   dev_url: https://github.com/vatlab/sos-julia
 
