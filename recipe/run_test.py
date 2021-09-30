@@ -14,7 +14,7 @@ class TestSoSKernel(unittest.TestCase):
             execute(kc=kc, code='%use Julia\n%get a\nprint(a)')
             stdout, stderr = assemble_output(kc.get_iopub_msg)
             self.assertEqual(stderr.strip(), '', f'Stderr is not empty, "{stderr}" received')
-            self.assertEqual(stdout.strip(), '1', f'Stdout should be 1, "{stdout}" received')
+            self.assertEqual(stdout.splitlines()[-1].strip(), '1', f'Stdout should be 1, "{stdout}" received')
 
 if __name__ == '__main__':
     unittest.main()
