@@ -12,6 +12,7 @@ source:
 build:
   noarch: python
   number: 0
+  skip: true  # [py<37]
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
     - export JUPYTER_DATA_DIR=${PREFIX}/share/jupyter
@@ -21,26 +22,27 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - julia
+    - jupyter_contrib_core
   run:
-    - sos-notebook >=0.19.4
+    - sos-notebook >=0.22.7
     - feather-format
     - julia
-    - python >=3.6
+    - python
 
 test:
   requires:
     - nose
     - pytest
     - selenium
-    - jupyter-contrib-core
+    - jupyter_contrib_core
   imports:
     - sos_julia
 
 about:
   home: https://github.com/vatlab/sos-julia
-  license: BSD
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: SoS language module for Julia
