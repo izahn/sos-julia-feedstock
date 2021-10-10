@@ -14,12 +14,6 @@ build:
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
-    - export JUPYTER_DATA_DIR=${PREFIX}/share/jupyter
-    - export JUPYTER=$(which jupyter)
-    - julia -e "using Pkg;Pkg.add([\"IJulia\", \"Feather\", \"DataFrames\", \"NamedArrays\"])"
-  rpaths:
-    - lib
-    - share/jupyter
 
 requirements:
   host:
