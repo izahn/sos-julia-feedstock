@@ -3,7 +3,7 @@ About sos-julia
 
 Home: https://github.com/vatlab/sos-julia
 
-Package license: BSD
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sos-julia-feedstock/blob/master/LICENSE.txt)
 
