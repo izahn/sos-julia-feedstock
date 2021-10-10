@@ -10,13 +10,16 @@ source:
   sha256: e2c67e0d18f54eaeebaaf11537b03d753206711debaf04c7c1673ecd3ae962bc
 
 build:
-  number: 0
-  skip: true  # [py<37]
+  number: 1
+  noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
     - export JUPYTER_DATA_DIR=${PREFIX}/share/jupyter
     - export JUPYTER=$(which jupyter)
     - julia -e "using Pkg;Pkg.add([\"IJulia\", \"Feather\", \"DataFrames\", \"NamedArrays\"])"
+  rpaths:
+    - lib
+    - share/jupyter
 
 requirements:
   host:
