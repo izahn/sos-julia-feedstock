@@ -18,14 +18,14 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.7
     - julia
     - jupyter_contrib_core
   run:
     - sos-notebook >=0.22.7
     - feather-format
     - julia
-    - python
+    - python >=3.7
 
 test:
   requires:
