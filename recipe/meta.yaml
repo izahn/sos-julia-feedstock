@@ -19,13 +19,13 @@ requirements:
   host:
     - pip
     - python >=3.7
-    - julia
     - jupyter_contrib_core
   run:
-    - sos-notebook >=0.22.7
+    - sos-notebook >=0.22.6
     - feather-format
-    - julia
     - python >=3.7
+    - jupyter_contrib_core
+    - jupyter_contrib_nbextensions    
 
 test:
   requires:
@@ -34,7 +34,7 @@ test:
     - selenium
     - jupyter_contrib_core
     - jupyter_contrib_nbextensions
-    - sos-notebook >=0.22.7
+    - sos-notebook >=0.22.6
   imports:
     - sos_julia
 
